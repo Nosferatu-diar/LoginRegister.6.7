@@ -7,14 +7,14 @@ import { useNavigate } from 'react-router-dom';
 const Register = () => {
 	const navigate = useNavigate();
 	const { isLoading, mutate } = useRegisterMutation();
-	const signIn = values => {
+	const signUp = values => {
 		mutate(values);
 		localStorage.setItem('email', values.email);
 	};
 	return (
 		<section className='h-screen w-[50%] m-auto  flex items-center justify-center flex-col'>
 			<h1 className='text-2xl py-2 '>Register</h1>
-			<Form onFinish={signIn} className='w-full'>
+			<Form onFinish={signUp} className='w-full'>
 				<Form.Item
 					name='first_name'
 					rules={[{ required: true, message: 'Ismingizni kiriting...!' }]}
@@ -42,9 +42,11 @@ const Register = () => {
 						placeholder='Parolingizni kiriting...'
 					/>
 				</Form.Item>
-				<Button onClick={() => navigate('/login')} type='link'>
-					already have an account
-				</Button>
+				<div className='pb-3'>
+					<Button onClick={() => navigate('/login')} type='link'>
+						already have an account
+					</Button>
+				</div>
 				<Button
 					disabled={isLoading}
 					className='w-full !h-[40px]'

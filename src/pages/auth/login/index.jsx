@@ -30,9 +30,14 @@ const Login = () => {
 						placeholder='Parolingizni kiriting...'
 					/>
 				</Form.Item>
-				<Button onClick={() => navigate('/register')} type='link'>
-					Don't have an account
-				</Button>
+				<div className='flex justify-between mb-3'>
+					<Button onClick={() => navigate('/register')} type='link'>
+						Register
+					</Button>
+					<Button onClick={() => navigate('/forgot-password')} type='link'>
+						Forgot password
+					</Button>
+				</div>
 				<Button
 					disabled={isLoading}
 					className='w-full !h-[40px]'

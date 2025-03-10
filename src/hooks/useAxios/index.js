@@ -7,6 +7,7 @@ export const useAxios = () => {
 			method,
 			headers: {
 				'Content-Type': 'application/json',
+				Authorization: `Bearer ${localStorage.getItem('token')}`,
 				...headers,
 			},
 			data: { ...body },
